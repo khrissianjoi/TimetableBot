@@ -3,7 +3,7 @@ import os
 import requests
 
 import env_secrets
-from timetable_headers import current, headers
+from TimetableHeaders import current, headers
 
 
 link = os.environ.get("TimetableUrl")

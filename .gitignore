@@ -1,3 +1,4 @@
 backup.txt
 env_secrets.py
 TimetableHeaders.py
+__pycache__/

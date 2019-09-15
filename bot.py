@@ -18,7 +18,7 @@ current = {
     ]
   },
   "CategoryIdentities": [
-    "38b55ac0-a242-23d3-4a10-79f11bdd780c"
+    "ac1c8470-e74f-5239-c153-ccc42c836613"
   ]
 }
 headers = {

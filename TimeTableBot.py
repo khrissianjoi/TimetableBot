@@ -8,13 +8,14 @@ from TimetableHeaders import current, headers
 
 
 def timetableRequest():
+    '''api call to timetable'''
     link = os.environ.get("TimetableUrl")
     response = requests.post(link, json=current, headers=headers)
     return response
 
 
 def modulesCollector():
-    '''collects all the lectures in that week'''
+    '''collects all the lectures in cuurent week'''
     response = timetableRequest()
     lecturesOfTheWeek = json.loads(response.text)[0]['CategoryEvents']
     allLectureStartTime = []
@@ -31,6 +32,7 @@ def modulesCollector():
 
 
 def closestModuleIdentifier(modulesInformation, startDateTimes):
+    '''calculates the next lecture by comparing with the current time'''
     currentTime = datetime.datetime.strptime("2019-09-24T09:00:00+00:00",
                                              '%Y-%m-%dT%H:%M:%S%z')
     differences = [abs(currentTime - eachDate) for eachDate in startDateTimes]

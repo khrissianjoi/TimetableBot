@@ -31,8 +31,9 @@ def modulesCollector():
 
 
 def closestModuleIdentifier(modulesInformation, startDateTimes):
-    CurrentTime = datetime.datetime.strptime("2019-09-24T09:00:00+00:00", '%Y-%m-%dT%H:%M:%S%z')
-    differences = [abs(CurrentTime - each_date) for each_date in startDateTimes]
+    currentTime = datetime.datetime.strptime("2019-09-24T09:00:00+00:00",
+                                             '%Y-%m-%dT%H:%M:%S%z')
+    differences = [abs(currentTime - eachDate) for eachDate in startDateTimes]
     closestDate = startDateTimes[differences.index(min(differences))]
 
     return modulesInformation[closestDate]

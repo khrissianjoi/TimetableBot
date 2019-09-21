@@ -21,9 +21,11 @@ def modulesCollector():
     lecturesDetails = {}
     for lecture in lecturesOfTheWeek:
         venue = lecture['Location']
-        lectureDateTime = datetime.datetime.strptime(lecture['StartDateTime'], '%Y-%m-%dT%H:%M:%S%z')
+        lectureTitle = lecture['ExtraProperties'][0]['Value']
+        lectureDateTime = datetime.datetime.strptime(lecture['StartDateTime'],
+                                                     '%Y-%m-%dT%H:%M:%S%z')
         allLectureStartTime.append(lectureDateTime)
-        lecturesDetails[lectureDateTime] = lecture['ExtraProperties'][0]['Value'], venue
+        lecturesDetails[lectureDateTime] = lectureTitle, venue
 
     return closestModuleIdentifier(lecturesDetails, allLectureStartTime)
 
@@ -34,5 +36,6 @@ def closestModuleIdentifier(modulesInformation, startDateTimes):
     closestDate = startDateTimes[differences.index(min(differences))]
 
     return modulesInformation[closestDate]
+
 
 print(modulesCollector())

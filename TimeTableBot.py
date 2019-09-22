@@ -10,9 +10,8 @@ from TimetableHeaders import current, headers
 def timetableRequest():
     '''api call to timetable'''
     link = os.environ.get("TimetableUrl")
-    response = requests.post(link, json=current, headers=headers)
-    return response
-
+    return requests.post(link, json=current, headers=headers)
+    
 
 def modulesCollector():
     '''collects all the lectures in cuurent week'''

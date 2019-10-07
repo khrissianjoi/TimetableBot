@@ -1,4 +1,5 @@
 import datetime
+# import timedelta
 import json
 import os
 import requests
@@ -32,8 +33,8 @@ def modulesCollector():
 
 def closestModuleIdentifier(modulesInformation, startDateTimes):
     '''calculates the next lecture by comparing with the current time'''
-    currentTime = datetime.datetime.strptime("2019-09-24T09:00:00+00:00",
-                                             '%Y-%m-%dT%H:%M:%S%z')
+    currentTime = datetime.datetime.strptime(str(datetime.datetime.utcnow()),
+                                             '%Y-%m-%d %H:%M:%S%z')
     differences = [abs(currentTime - eachDate) for eachDate in startDateTimes]
     closestDate = startDateTimes[differences.index(min(differences))]
 
